@@ -1,0 +1,12 @@
+.env
+.env-test
+
+# Node
+node_modules/
+
+# Python
+*.egg-info
+__pycache__
+
+#Php
+vendor/
