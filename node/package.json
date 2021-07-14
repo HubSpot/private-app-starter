@@ -16,8 +16,7 @@
     "@hubspot/api-client": "^4.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "open": "^8.2.1",
-    "request-promise-native": "^1.0.9"
+    "open": "^8.2.1"
   },
   "author": "hubspot",
   "license": "Apache-2.0",

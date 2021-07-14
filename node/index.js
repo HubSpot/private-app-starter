@@ -1,9 +1,9 @@
+const hubspot = require('@hubspot/api-client');
 require('dotenv').config();
 const express = require('express');
-const request = require('request-promise-native');
 const opn = require('open');
-const app = express();
 
+const app = express();
 const PORT = 3000;
 
 if (!process.env.ACCESS_TOKEN) {
@@ -21,29 +21,23 @@ if (!process.env.ACCESS_TOKEN) {
 // Replace the following with the values from your app auth config,
 // or set them as environment variables before running.
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
+const hubspotClient = new hubspot.Client({ accessToken: ACCESS_TOKEN });
 
 //====================================================//
 //   Using an Access Token to Query the HubSpot API   //
 //====================================================//
 
-const getContact = async (accessToken) => {
+const getContact = async () => {
   console.log('');
-  console.log('=== Retrieving a contact from HubSpot using the access token ===');
+  console.log('=== Retrieving a contact from HubSpot using API Client ===');
   try {
-    const headers = {
-      Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json'
-    };
-    console.log('===> Replace the following request.get() to test other API calls');
-    console.log('===> request.get(\'https://api.hubapi.com/contacts/v1/lists/all/contacts/all?count=1\')');
-    const result = await request.get('https://api.hubapi.com/contacts/v1/lists/all/contacts/all?count=1', {
-      headers: headers
-    });
-
-    return JSON.parse(result).contacts[0];
+    console.log('===> Replace the following hubspotClient.crm.contacts.basicApi.getPage(1) to test other API calls');
+    console.log('===> hubspotClient.crm.contacts.basicApi.getPage(1)');
+    const result = await hubspotClient.crm.contacts.basicApi.getPage(1);
+    return result.body.results[0];
   } catch (e) {
     console.error('  > Unable to retrieve contact');
-    return JSON.parse(e.response.body);
+    return e.response.body;
   }
 };
 
@@ -57,13 +51,13 @@ const displayContactName = (res, contact) => {
     return;
   }
   const { firstname, lastname } = contact.properties;
-  res.write(`<p>Contact name: ${firstname.value} ${lastname.value}</p>`);
+  res.write(`<p>Contact name: ${firstname} ${lastname}</p>`);
 };
 
 app.get('/', async (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.write(`<h2>HubSpot Private App Starter</h2>`);
-  const contact = await getContact(ACCESS_TOKEN);
+  const contact = await getContact();
   displayContactName(res, contact);
   res.end();
 });
