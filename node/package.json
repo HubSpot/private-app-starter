@@ -1,0 +1,28 @@
+{
+  "name": "hubspot-oauth",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">= 10.13.0"
+  },
+  "description": "hubspot private app starter",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint . && prettier --list-different './**/*.{js,json}'",
+    "prettier:write": "prettier --write './**/*.{js,json}'"
+  },
+  "dependencies": {
+    "@hubspot/api-client": "^4.0.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "open": "^8.2.1"
+  },
+  "author": "hubspot",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "nodemon": "^1.19.3",
+    "prettier": "^2.2.1"
+  }
+}
