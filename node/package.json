@@ -7,7 +7,7 @@
   "description": "hubspot private app starter",
   "main": "index.js",
   "scripts": {
-    "start": "index.js",
+    "start": "node index.js",
     "dev": "nodemon src/index.js",
     "lint": "eslint . && prettier --list-different './**/*.{js,json}'",
     "prettier:write": "prettier --write './**/*.{js,json}'"
