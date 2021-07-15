@@ -1,4 +1,4 @@
-# HubSpot-nodejs oauth sample app
+# HubSpot-nodejs private app starter
 
 An [Express server](http://expressjs.com/) implementation
 
