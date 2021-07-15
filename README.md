@@ -10,9 +10,9 @@ This is a sample app for demonstrating the HubSpot API [client libraries](https:
 cp node/.env.template node/.env
 ```
 
-5. Paste your Private App Access Token as the value for ACCESS_TOKEN in .env 
+2. Paste your Private App Access Token as the value for ACCESS_TOKEN in .env 
 
-6. Follow the language instructions on how to run. For example, if you want to run the Node server:
+3. Follow the language instructions on how to run. For example, if you want to run the Node server:
 
 ```
 cd node # there's a README in this folder with instructions
