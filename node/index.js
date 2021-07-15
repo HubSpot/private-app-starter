@@ -3,35 +3,34 @@ require('dotenv').config();
 const express = require('express');
 const opn = require('open');
 
-const app = express();
-const PORT = 3000;
-
-if (!process.env.ACCESS_TOKEN) {
-  throw new Error('Missing ACCESS_TOKEN environment variable.')
-}
-
 //===========================================================================//
 //  HUBSPOT APP CONFIGURATION
 //
-//  All the following values must match configuration settings in your app.
-//  They will be used to build the OAuth URL, which users visit to begin
-//  installing. If they don't match your app's configuration, users will
+//  ACCESS_TOKEN value must match configuration settings in your private app.
+//  It will be used to configure HubSpot API Client for signing requests to HubSpot API endpoints
+//  If ACCESS_TOKEN doesn't match your private app configuration, users will
 //  see an error page.
 
-// Replace the following with the values from your app auth config,
-// or set them as environment variables before running.
+// Set Private App ACCESS_TOKEN as environment variables before running.
+if (!process.env.ACCESS_TOKEN) {
+  throw new Error('Missing ACCESS_TOKEN environment variable.')
+}
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
+
+//=============================================================================//
+//   Using Private App Access Token to configure HubSpot API Client instance   //
+//=============================================================================//
 const hubspotClient = new hubspot.Client({ accessToken: ACCESS_TOKEN });
 
-//====================================================//
-//   Using an Access Token to Query the HubSpot API   //
-//====================================================//
+//==================================================//
+//   Using an API Client to Query the HubSpot API   //
+//==================================================//
 
 const getContact = async () => {
   console.log('');
   console.log('=== Retrieving a contact from HubSpot using API Client ===');
   try {
-    console.log('===> Replace the following hubspotClient.crm.contacts.basicApi.getPage(1) to test other API calls');
+    console.log('===> Replace the following hubspotClient.crm.contacts.basicApi.getPage(1) SDK call to test other API endpoints');
     console.log('===> hubspotClient.crm.contacts.basicApi.getPage(1)');
     const result = await hubspotClient.crm.contacts.basicApi.getPage(1);
     return result.body.results[0];
@@ -53,6 +52,9 @@ const displayContactName = (res, contact) => {
   const { firstname, lastname } = contact.properties;
   res.write(`<p>Contact name: ${firstname} ${lastname}</p>`);
 };
+
+const app = express();
+const PORT = 3000;
 
 app.get('/', async (req, res) => {
   res.setHeader('Content-Type', 'text/html');
