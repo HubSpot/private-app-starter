@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+ruby '2.6.3'
+
+gem 'hubspot-api-client'
+
+gem 'sinatra'
+gem 'puma'
+
+gem 'dotenv'
+gem 'pry'
