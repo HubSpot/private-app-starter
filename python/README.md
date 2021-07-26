@@ -1,9 +1,9 @@
-# HubSpot-ruby CRM-objects sample app
+# HubSpot-python private app starter
 
 ### Requirements
 
 1. Make sure you have [Python 3.8+](https://www.python.org/downloads/) installed.
-2. [Configured](https://github.com/HubSpot/sample-apps-manage-crm-objects/blob/main/README.md#how-to-run-locally) .env file
+2. [Configured](https://github.com/HubSpot/private-app-starter/blob/main/README.md#how-to-run-locally)) .env file
 
 ### Running
 
