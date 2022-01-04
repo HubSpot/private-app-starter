@@ -16,7 +16,7 @@ pip3 install -r requirements.txt
 2. Start your app
 
 ```
-flusk run
+flask run
 ```
 
 3. Visit http://127.0.0.1:5000/ to check results.
