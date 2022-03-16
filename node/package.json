@@ -1,5 +1,5 @@
 {
-  "name": "hubspot-oauth",
+  "name": "@hubspot/private-app-starter",
   "version": "1.0.0",
   "engines": {
     "node": ">= 10.13.0"
