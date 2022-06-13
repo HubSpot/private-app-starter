@@ -22,7 +22,11 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "eslint": "^7.18.0",
-    "nodemon": "^1.19.3",
+    "nodemon": "^2.0.16",
     "prettier": "^2.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HubSpot/private-app-starter.git"
   }
 }
