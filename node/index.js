@@ -33,7 +33,7 @@ const getContact = async () => {
     console.log('===> Replace the following hubspotClient.crm.contacts.basicApi.getPage(1) SDK call to test other API endpoints');
     console.log('===> hubspotClient.crm.contacts.basicApi.getPage(1)');
     const result = await hubspotClient.crm.contacts.basicApi.getPage(1);
-    return result.body.results[0];
+    return result.results[0];
   } catch (e) {
     console.error('  > Unable to retrieve contact');
     return e.response.body;
