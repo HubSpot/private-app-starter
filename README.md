@@ -23,3 +23,6 @@ npm start
 ## Supported languages
 
 * [JavaScript (Node)](node/README.md)
+* [Python](python/README.md)
+* [Php](php/README.md)
+* [Ruby](ruby/README.md)
